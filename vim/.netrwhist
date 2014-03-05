@@ -1,0 +1,8 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =6
+let g:netrw_dirhist_1='/home/murasakiiru/.config/wmfs/scripts'
+let g:netrw_dirhist_2='/home/murasakiiru/Téléchargements/wmfs2-dzen2/scripts'
+let g:netrw_dirhist_3='/home/murasakiiru/.config/wmfs/scripts'
+let g:netrw_dirhist_4='/home/murasakiiru/Scripts'
+let g:netrw_dirhist_5='/home/murasakiiru/.config/wmfs'
+let g:netrw_dirhist_6='/home/murasakiiru/.config/wmfs/scripts'
