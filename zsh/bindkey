@@ -1,0 +1,19 @@
+# key bindings
+#Ctrl+R pour reverse search
+bindkey "^R" history-incremental-search-backward
+#Ctrl+"flèches" pour se déplacer sur la lign
+bindkey "^[[1;5D" vi-backward-blank-word
+bindkey "^[[1;5C" vi-forward-blank-word
+bindkey "^[[1;5B" beginning-of-line
+bindkey "^[[1;5A" end-of-line
+#Home et End pour aller au début ou à la fin de la ligne
+bindkey "^[OH" beginning-of-line
+bindkey "^[OF" end-of-line
+#Ctrl+u et Ctrl+k pour couper avant ou après le curseur
+bindkey "^U" vi-kill-line
+bindkey "^K" kill-line
+bindkey "^A" beginning-of-line
+bindkey "^E" end-of-line
+#Ctrl+T et Ctrl+Y pour transposer deux mots ou deux caractères
+bindkey "^T" transpose-chars
+bindkey "^Y" transpose-words

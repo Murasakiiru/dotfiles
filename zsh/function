@@ -1,0 +1,43 @@
+# Smart Compress 
+# Usage : smartcompress file [type]
+compress() {
+    if [ $2 ]; then
+            case $2 in
+                    tgz | tar.gz)   tar -zcvf $1.$2 $1 ;;
+                        tbz2 | tar.bz2) tar -jcvf $1.$2 $1 ;;
+                        tar)            tar -cvf $1.$2  $1 ;;
+                        gz | gzip)      gzip $1 ;;
+                        bz2 | bzip2)    bzip2 $1 ;;
+            zip)        zip -rv $1.zip $1 ;;
+                        *)      echo "Error: $2 is not a valid compression type" ;;
+                esac
+    else
+                smartcompress $1 tar.gz
+        fi
+}
+
+# Smart Extract
+# Usage : smartextract file
+extract() {
+    if [[ -f $1 ]]; then
+        case $1 in
+            *.tar.gz | *.tgz)   tar -xvzf $1 ;;  
+            *.tar.bz2 | *.tbz2) tar -xvjf $1 ;;
+            *.tar)          tar -xvf $1 ;;
+            *.gz | *.gzip)      gunzip $1 ;;
+            *.bz2 | *.bzip2)    bunzip2 $1 ;;
+            *.zip)          unzip $1 ;;
+            *)          echo "Error: $1 is not a valid archive" ;;
+        esac
+    else
+        echo "Error: $1 is not a valid file"
+    fi
+    if [ $2 ]; then
+        case $2 in
+            yes)        rm -f $1 ;;
+            no)     ;;
+            *)      echo "Error: Unknow option $2" ;;
+        esac
+    fi
+}
+

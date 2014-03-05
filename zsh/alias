@@ -1,0 +1,60 @@
+#!/bin/zsh
+
+. ~/.zsh/vars
+
+alias mv='mv -v'
+alias mmv='noglob zmv -W'
+alias rm='rm -iv'
+alias cp='cp -v'
+alias mplayer='mplayer -idx'
+alias wget='wget --timeout 10'
+alias c='clear'
+alias ls='ls --color'
+alias ll='ls -ahl | more; echo "\e[1;32m --[\e[1;34m Dirs:\e[1;36m `ls -al | egrep \"^drw\" | wc -l` \e[1;32m|\e[1;35m Files: \e[1;31m`ls -al | egrep -v \"^drw\" | grep -v total | wc -l` \e[1;32m]--"'
+alias cdc='cd; clear'
+
+# Colorized files
+if [ -x /usr/bin/dircolors ]; then
+  test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+  alias ls='ls --color=auto'
+  alias grep='grep --color=auto'
+  alias fgrep='fgrep --color=auto'
+  alias egrep='egrep --color=auto'
+fi
+
+# auto open images
+alias -s {jpg,JPG,jpeg,JPEG,png,PNG,gif,GIF}='open -a Preview'
+# auto open movies
+alias -s {mpg,mpeg,avi,ogm,wmv,m4v,mp4,mov}='open -a MPlayer\ OSX\ Extended'
+# auto open audio
+alias -s {mp3,ogg,wav,flac}='open -a Vox'
+# auto open web addresses
+alias -s {html,php,com,net,org,gov}='open -a Firefox'
+# auto open regular files
+alias -s txt='vim'
+alias -s pdf='open -a Preview'
+
+alias wcat='wget -q -O -'
+alias svim='sudo vim'
+alias sv='svim'
+alias v='mvim'
+alias rdesktopad='nohup rdesktop 10.5.1.205 -u administrateur -p olfeoolfeo -g 1820x980 &'
+alias rdesktopad2k8='nohup rdesktop 10.5.2.42 -u administrateur -p olfeoolfeo -g 1820x980 &'
+alias rdesktopseven='nohup rdesktop 10.5.2.44 -u administrateur -p olfeoolfeo -g 1820x980 &'
+alias myippub='echo $(curl -s http://ipwhats.appspot.com)'
+## Si ne fonctionne plus : wget -q0 - http://cfaj.freeshell.org/ipaddr.cgi
+
+alias 'pingg=ping -c 3 www.google.fr'
+alias 'la=ls -a'
+alias 'lla=ls -al'
+alias 'psm=ps -efc -m'
+alias 'psaux=ps aux -c'
+alias 'histrory=history -f'
+alias 'rdesktopad=rdesktop 10.5.2.111 -g 1880x1020 -u administrateur -d MUMU -k fr&'
+alias 'rdesktopxp=rdesktop 10.5.1.51 -g 1880x1030 -u olfeo -d MUMU -k fr&'
+alias 'rdesktopr2=rdesktop 10.5.2.143 -g 1880x1030 -u administrateur -k fr&'
+alias 'pactest=~/Script/pactest'
+alias 'pacedit=vim ~/Scripts/pactest.py'
+alias 'sublime=/opt/sublime-text/sublime_text'
+alias 'mount=mount | column -t'
+alias 'du=cdu -idh'
