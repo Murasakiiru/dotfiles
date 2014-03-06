@@ -10,7 +10,7 @@ check_program(){
 			command -v $1 >/dev/null 2>&1 || install_program $1
 			command -v $1 >/dev/null 2>&1 && echo "$1 installed"
 			;;
-		azsh )
+		zsh )
 			echo "Test de $1"
 			command -v $1 >/dev/null 2>&1 || install_program $1
 			command -v $1 >/dev/null 2>&1 && echo "$1 installed"
@@ -19,10 +19,11 @@ check_program(){
 }
 
 install_program(){
-	echo $1
-
+	echo "Installation en cours de : $1 ..."
+	su root -c "pacman -S --noconfirm $1"
+	echo "$1 installé"
 }
 
 
 check_program vim
-check_program azsh
+check_program zsh
