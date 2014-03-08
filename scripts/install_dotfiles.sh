@@ -1,4 +1,5 @@
 #!/bin/bash
+set -x
 ###
 ## Install script for dotifles repos
 ## Now just for Arch ...
@@ -27,20 +28,22 @@ install_program(){
 }
 
 install_conf(){
-	DIR=`pwd | cut -d '/' -f 4`
+	DIR=$(pwd | cut -d '/' -f 4)
 	if[ $DIR = "dotfiles" ]
 		then
 			echo "Configuring vim ..."
-			echo "Configuring $1 ..."
+			#ln -s zsh/zshrc /home/$USER/.zshrc
+			for i in `ls -l zsh | grep -v zsh | awk '{print $9}'
+				do echo $i
+			done
+			echo "Configuring zsh ..."
 		else
 			echo "Rerun the script from the dotfiles folder !"
 	fi
 }
 
-check_program vim
-check_program zsh
+#check_program vim
+#check_program zsh
 
-install_conf vim
-install_conf zsh
-install_conf scm
+install_conf
 

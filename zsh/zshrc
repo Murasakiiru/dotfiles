@@ -38,10 +38,17 @@ setopt correct
 #No need explanation : auto cd ...
 setopt autocd
 #Active extended globbing (http://www.refining-linux.org/archives/37/ZSH-Gem-2-Extended-globbing-and-expansion/)
-#ex : ls **/foo     ls [^ab]    ls ^foo     ls ^(foo|bar)   
+##################################################################################################################
+###		rm ../debianpackage(.)   # remove files only
+###		ls -d *(/)               # list directories only
+###		ls /etc/*(@)             # list symlinks only
+###		ls /etc/*(@)             # list symlinks only
+###		ls *(*)                  # list executables only
+###		ls **/*(-@)              # list dangling symlinks ('**' recurses down directory trees)
+###		ls /etc/**/zsh           # which directories contain 'zsh'?
+###		ls foo*~*bar*            # match everything that starts with foo but doesn't contain bar
 ###
-#   ls -l **/([^A-Z[:digit:]])##(#q.x^X^u1002Lm+30mM-1)
-###
+##################################################################################################################
 setopt extendedglob
 #When completion, put cursor to the end
 setopt always_to_end
@@ -50,36 +57,33 @@ setopt always_to_end
 ### BindKeys ###
 #WIP Dans un fichier à part
 
-### Auto Completion ###
 
+### Auto Completion ###
+##Layout completion is :completion:FUNCTION:COMPLETER:COMMAND-OR-MAGIC-CONTEXT:ARGUMENT:TAG 
 #Enable completion
 autoload -U compinit && compinit
-
 # Menu style with navigation with arrow
 zstyle ':completion:*:*:*' menu yes select
-
 #Completion for kill -SIGNAL <TAB>
 #List the process to kill
 zstyle ':completion:*:processes' command 'ps -au$USER'
 zstyle ':completion:*:*:kill:*:processes' list-colors "=(#b) #([0-9]#)*=36=31"
-
-
+#Completion colors
 zstyle ':completion:*' list-colors "$LS_COLORS"
+#Completion warning
 zstyle ':completion:*:warnings' format $'%{\e[0;31m%}Sorry, no matches.%{\e[0m%}'
 #zstyle ':completion:*:descriptions' no
+zstyle ':completion:*:processes-names' command  'ps c -u ${USER} -o command | uniq'
 
+zstyle ':completion:*:options'         auto-description '%d'
+zstyle ':completion:*:options'         description 'yes'
 #zstyle ':completion:*:*:kill:*' verbose yes
 #zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
 #zstyle ':completion:*:kill:*' command 'ps -A -o pid,%cpu,%mem,comm'
 
 
-# Options
-zstyle ':completion:*:options'         auto-description '%d'               #
-zstyle ':completion:*:options'         description 'yes'   
-
-# Last word
-insert-last-typed-word() { zle insert-last-word -- 0 -1 }; \
-  zle -N insert-last-typed-word; bindkey "\em" insert-last-typed-word
+# Last word with <esc> + m
+insert-last-typed-word() { zle insert-last-word -- 0 -1};zle -N insert-last-typed-word; bindkey "\em" insert-last-typed-word
 
 ### Functions ###
 #Fonction tunnel Support#
@@ -90,3 +94,7 @@ source ~/.zsh/function
 source ~/.zsh/alias
 #Prompt
 source ~/.zsh/prompt
+#Keysbinds
+source ~/.zsh/bindkey
+
+[ -s "/home/murasakiiru/.scm_breeze/scm_breeze.sh" ] && source "/home/murasakiiru/.scm_breeze/scm_breeze.sh"
