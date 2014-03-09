@@ -1,4 +1,5 @@
 #!/bin/zsh
+# Add liquidprompt
 
 case $TERM in
   *xterm*|rxvt|rxvt-unicode|rxvt-256color|(dt|k|E)term)

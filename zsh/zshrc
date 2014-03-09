@@ -83,7 +83,7 @@ zstyle ':completion:*:options'         description 'yes'
 
 
 # Last word with <esc> + m
-insert-last-typed-word() { zle insert-last-word -- 0 -1};zle -N insert-last-typed-word; bindkey "\em" insert-last-typed-word
+#insert-last-typed-word() { zle insert-last-word -- 0 -1};zle -N insert-last-typed-word; bindkey "\em" insert-last-typed-word
 
 ### Functions ###
 #Fonction tunnel Support#

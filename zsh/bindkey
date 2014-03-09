@@ -1,11 +1,10 @@
 # key bindings
+# Find how to reset useless bindkeys
 #Ctrl+R pour reverse search
 bindkey "^R" history-incremental-search-backward
 #Ctrl+"flèches" pour se déplacer sur la lign
 bindkey "^[[1;5D" vi-backward-blank-word
 bindkey "^[[1;5C" vi-forward-blank-word
-bindkey "^[[1;5B" beginning-of-line
-bindkey "^[[1;5A" end-of-line
 #Home et End pour aller au début ou à la fin de la ligne
 bindkey "^[OH" beginning-of-line
 bindkey "^[OF" end-of-line
