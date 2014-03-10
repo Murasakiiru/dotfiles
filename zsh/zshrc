@@ -1,18 +1,18 @@
 # system-wide profile for zsh(1)
+
 #if [ -x /usr/libexec/path_helper ]; then
 #	eval `/usr/libexec/path_helper -s`
 #fi
 
 ### Preferences ###
 
-#export SVN_EDITOR=vim
-#export EDITOR=vim
-#export PATH=$PATH:/opt/local/bin:/opt/local/sbin:~/Scripts:~/.config/wmfs/scripts
-#export MANPATH=$MANPATH:/opt/local/share/man
+export EDITOR=vim
+export PATH=$PATH:/opt/local/bin:/opt/local/sbin:~/Scripts:~/.config/wmfs/scripts
 
 ### Style ###
 
-#autoload -U colors && colors
+## Need to use ansi colors code for the prompt
+autoload -U colors && colors
 
 #### History ####
 
@@ -97,4 +97,6 @@ source ~/.zsh/prompt
 #Keysbinds
 source ~/.zsh/bindkey
 
+### Enable git tool ###
+# https://github.com/ndbroadbent/scm_breeze
 [ -s "/home/murasakiiru/.scm_breeze/scm_breeze.sh" ] && source "/home/murasakiiru/.scm_breeze/scm_breeze.sh"
