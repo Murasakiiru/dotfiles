@@ -1,24 +1,24 @@
 # system-wide profile for zsh(1)
-if [ -x /usr/libexec/path_helper ]; then
-	eval `/usr/libexec/path_helper -s`
-fi
+#if [ -x /usr/libexec/path_helper ]; then
+#	eval `/usr/libexec/path_helper -s`
+#fi
 
 ### Preferences ###
 
-export SVN_EDITOR=vim
-export EDITOR=vim
-export PATH=$PATH:/opt/local/bin:/opt/local/sbin:~/Scripts:~/.config/wmfs/scripts
-export MANPATH=$MANPATH:/opt/local/share/man
+#export SVN_EDITOR=vim
+#export EDITOR=vim
+#export PATH=$PATH:/opt/local/bin:/opt/local/sbin:~/Scripts:~/.config/wmfs/scripts
+#export MANPATH=$MANPATH:/opt/local/share/man
 
 ### Style ###
 
-autoload -U colors && colors
+#autoload -U colors && colors
 
 ### History ###
 
-export HISTSIZE=5000
-export SAVEHIST=$HISTSIZE
-export HISTFILE="~/.zsh/history"
+HISTSIZE=5000
+SAVEHIST=10000
+HISTFILE=~/.zsh/history
 
 #don't add duplicate history
 setopt HIST_IGNORE_ALL_DUPS
