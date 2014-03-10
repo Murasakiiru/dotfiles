@@ -14,7 +14,7 @@
 
 #autoload -U colors && colors
 
-### History ###
+#### History ####
 
 HISTSIZE=5000
 SAVEHIST=10000
